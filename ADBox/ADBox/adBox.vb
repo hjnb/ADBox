@@ -6,6 +6,8 @@ Public Class adBox
 
     Private focusedTextBoxNum As Integer = 0
 
+    Private focusControlFlg As Boolean = False
+
     Private Const VALUE_UP As Integer = 1
     Private Const VALUE_DOWN As Integer = -1
 
@@ -235,6 +237,9 @@ Public Class adBox
     End Sub
 
     Private Sub yearBox_GotFocus(sender As Object, e As System.EventArgs) Handles yearBox.GotFocus
+        If focusControlFlg = False Then
+            yearBox.Select(0, 1)
+        End If
         focusedTextBoxNum = 1
     End Sub
 
@@ -402,7 +407,9 @@ Public Class adBox
             Dim ss As Integer = yearBox.SelectionStart
             yearTextUpDown(VALUE_UP)
             yearBox.Select(ss, 1)
+            focusControlFlg = True
             yearBox.Focus()
+            focusControlFlg = False
         ElseIf focusedTextBoxNum = 2 Then
             '月の増加処理
             Dim ss As Integer = monthBox.SelectionStart
@@ -426,11 +433,13 @@ Public Class adBox
         End If
 
         If focusedTextBoxNum = 1 Then
-            '和暦の減少処理
+            '西暦の減少処理
             Dim ss As Integer = yearBox.SelectionStart
             yearTextUpDown(VALUE_DOWN)
             yearBox.Select(ss, 1)
+            focusControlFlg = True
             yearBox.Focus()
+            focusControlFlg = False
         ElseIf focusedTextBoxNum = 2 Then
             '月の減少処理
             Dim ss As Integer = monthBox.SelectionStart
