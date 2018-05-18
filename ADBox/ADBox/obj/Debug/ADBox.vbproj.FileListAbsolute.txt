@@ -1,0 +1,18 @@
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\bin\Debug\ADBox.dll
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\bin\Debug\ADBox.pdb
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\bin\Debug\ADBox.xml
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\obj\Debug\ADBox.adBox.resources
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\obj\Debug\ADBox.Resources.resources
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\obj\Debug\ADBox.vbproj.GenerateResource.Cache
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\obj\Debug\ADBox.dll
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\obj\Debug\ADBox.xml
+C:\Users\yoshi\AppData\Local\Temporary Projects\ADBox\obj\Debug\ADBox.pdb
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\bin\Debug\ADBox.dll
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\bin\Debug\ADBox.pdb
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\bin\Debug\ADBox.xml
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\obj\Debug\ADBox.adBox.resources
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\obj\Debug\ADBox.Resources.resources
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\obj\Debug\ADBox.vbproj.GenerateResource.Cache
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\obj\Debug\ADBox.dll
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\obj\Debug\ADBox.xml
+C:\Users\yoshi\documents\visual studio 2010\Projects\ADBox\ADBox\obj\Debug\ADBox.pdb
