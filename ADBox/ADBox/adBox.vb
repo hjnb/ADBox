@@ -52,6 +52,10 @@ Public Class adBox
 
     Public Sub setADStr(adStr As String)
         clearText()
+        If adStr = "" Then
+            setADStr(AD_STR_MIN)
+            Return
+        End If
         Dim adStrArray As String() = Split(adStr, "/")
         yearText = adStrArray(0)
         monthText = adStrArray(1)
