@@ -11,6 +11,32 @@ Public Class adBox
     Private Const VALUE_UP As Integer = 1
     Private Const VALUE_DOWN As Integer = -1
 
+    Public Event keyDownEnter(ByVal sender As Object, ByVal e As EventArgs)
+
+    Private _mode As Integer
+    Public Property Mode() As Integer
+        Get
+            Return _mode
+        End Get
+        Set(ByVal value As Integer)
+            _mode = value
+            If Mode = 1 Then
+                btnUp.Visible = False
+                btnDown.Visible = False
+                dateBox.Visible = False
+                Label3.Visible = False
+                Me.Size = New Drawing.Size(105, 35)
+            Else
+                btnUp.Visible = True
+                btnDown.Visible = True
+                dateBox.Visible = True
+                Label3.Visible = True
+                Me.Size = New Drawing.Size(176, 35)
+            End If
+        End Set
+    End Property
+
+
     Public Property yearText() As String
         Get
             Return yearBox.Text
@@ -72,6 +98,10 @@ Public Class adBox
         Return yearText & "/" & monthText & "/" & dateText
     End Function
 
+    Public Function getADymStr() As String
+        Return yearText & "/" & monthText
+    End Function
+
     Public Sub clearText()
         yearText = ""
         monthText = ""
@@ -87,6 +117,11 @@ Public Class adBox
     End Function
 
     Private Sub yearBox_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles yearBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            RaiseEvent keyDownEnter(Me, New EventArgs)
+            Return
+        End If
+
         Dim selectedIndex As Integer = yearBox.SelectionStart
 
         If selectedIndex = 0 Then
@@ -184,6 +219,11 @@ Public Class adBox
     End Sub
 
     Private Sub monthBox_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles monthBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            RaiseEvent keyDownEnter(Me, New EventArgs)
+            Return
+        End If
+
         Dim selectedIndex As Integer = monthBox.SelectionStart
 
         If selectedIndex = 0 Then
@@ -231,8 +271,12 @@ Public Class adBox
                 If Integer.Parse(dateText) > daysNum Then
                     dateText = "" & daysNum
                 End If
-                dateBox.Focus()
-                dateBox.Select(0, 1)
+                If Mode = 1 Then
+                    monthBox.Select(1, 1)
+                Else
+                    dateBox.Focus()
+                    dateBox.Select(0, 1)
+                End If
                 e.SuppressKeyPress = True
             Else
                 e.SuppressKeyPress = True
