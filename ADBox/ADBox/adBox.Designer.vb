@@ -48,6 +48,7 @@ Partial Class adBox
         'monthBox
         '
         Me.monthBox.Font = New System.Drawing.Font("MS UI Gothic", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.monthBox.ImeMode = System.Windows.Forms.ImeMode.Disable
         Me.monthBox.Location = New System.Drawing.Point(65, 8)
         Me.monthBox.MaxLength = 2
         Me.monthBox.Name = "monthBox"
@@ -57,6 +58,7 @@ Partial Class adBox
         'dateBox
         '
         Me.dateBox.Font = New System.Drawing.Font("MS UI Gothic", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.dateBox.ImeMode = System.Windows.Forms.ImeMode.Disable
         Me.dateBox.Location = New System.Drawing.Point(109, 8)
         Me.dateBox.MaxLength = 2
         Me.dateBox.Name = "dateBox"
