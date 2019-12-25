@@ -4,6 +4,8 @@ Public Class adBox
 
     Private Const AD_STR_MIN As String = "1900/01/01"
 
+    Public canHoldDownButton As Boolean = True
+
     Private focusedTextBoxNum As Integer = 0
 
     Private focusControlFlg As Boolean = False
@@ -48,6 +50,21 @@ Public Class adBox
                 Label2.Text = "."
                 monthBox.Location = New System.Drawing.Point(53, 8)
                 dateBox.Location = New System.Drawing.Point(86, 8)
+            ElseIf Mode = 3 Then
+                btnUp.Visible = True
+                btnDown.Visible = True
+                dateBox.Visible = False
+                Label3.Visible = False
+                Me.Size = New Drawing.Size(130, 35)
+
+                Label1.Location = New System.Drawing.Point(43, 11)
+                Label1.Text = "年"
+                Label2.Location = New System.Drawing.Point(88, 11)
+                Label2.Text = "月"
+                monthBox.Location = New System.Drawing.Point(65, 8)
+                dateBox.Location = New System.Drawing.Point(109, 8)
+                btnUp.Location = New System.Drawing.Point(112, 1)
+                btnDown.Location = New System.Drawing.Point(112, 17)
             Else
                 btnUp.Visible = True
                 btnDown.Visible = True
@@ -542,23 +559,35 @@ Public Class adBox
     End Sub
 
     Private Sub btnUp_MouseDown(sender As Object, e As MouseEventArgs) Handles btnUp.MouseDown
-        upText()
-        Timer1.Start()
+        If canHoldDownButton Then
+            upText()
+            Timer1.Start()
+        Else
+            upText()
+        End If
     End Sub
 
     Private Sub btnUp_MouseUp(sender As Object, e As MouseEventArgs) Handles btnUp.MouseUp
-        Timer1.Stop()
-        Timer1.Interval = 500
+        If canHoldDownButton Then
+            Timer1.Stop()
+            Timer1.Interval = 500
+        End If
     End Sub
 
     Private Sub btnDown_MouseDown(sender As Object, e As MouseEventArgs) Handles btnDown.MouseDown
-        downText()
-        Timer2.Start()
+        If canHoldDownButton Then
+            downText()
+            Timer2.Start()
+        Else
+            downText()
+        End If
     End Sub
 
     Private Sub btnDown_MouseUp(sender As Object, e As MouseEventArgs) Handles btnDown.MouseUp
-        Timer2.Stop()
-        Timer2.Interval = 500
+        If canHoldDownButton Then
+            Timer2.Stop()
+            Timer2.Interval = 500
+        End If
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As System.EventArgs) Handles Timer1.Tick
