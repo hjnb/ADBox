@@ -13,6 +13,8 @@ Public Class adBox
 
     Public Event keyDownEnter(ByVal sender As Object, ByVal e As EventArgs)
 
+    Public Event YmdTextChange(ByVal sender As Object, ByVal e As EventArgs)
+
     Private _mode As Integer
     Public Property Mode() As Integer
         Get
@@ -26,12 +28,39 @@ Public Class adBox
                 dateBox.Visible = False
                 Label3.Visible = False
                 Me.Size = New Drawing.Size(105, 35)
+
+                Label1.Location = New System.Drawing.Point(43, 11)
+                Label1.Text = "年"
+                Label2.Location = New System.Drawing.Point(88, 11)
+                Label2.Text = "月"
+                monthBox.Location = New System.Drawing.Point(65, 8)
+                dateBox.Location = New System.Drawing.Point(109, 8)
+            ElseIf Mode = 2 Then
+                btnUp.Visible = False
+                btnDown.Visible = False
+                dateBox.Visible = True
+                Label3.Visible = False
+                Me.Size = New Drawing.Size(113, 35)
+
+                Label1.Location = New System.Drawing.Point(43, 11)
+                Label1.Text = "."
+                Label2.Location = New System.Drawing.Point(76, 11)
+                Label2.Text = "."
+                monthBox.Location = New System.Drawing.Point(53, 8)
+                dateBox.Location = New System.Drawing.Point(86, 8)
             Else
                 btnUp.Visible = True
                 btnDown.Visible = True
                 dateBox.Visible = True
                 Label3.Visible = True
                 Me.Size = New Drawing.Size(176, 35)
+
+                Label1.Location = New System.Drawing.Point(43, 11)
+                Label1.Text = "年"
+                Label2.Location = New System.Drawing.Point(88, 11)
+                Label2.Text = "月"
+                monthBox.Location = New System.Drawing.Point(65, 8)
+                dateBox.Location = New System.Drawing.Point(109, 8)
             End If
         End Set
     End Property
@@ -92,6 +121,7 @@ Public Class adBox
             setADStr(AD_STR_MIN)
         End If
 
+        RaiseEvent YmdTextChange(Me, New EventArgs)
     End Sub
 
     Public Function getADStr() As String
@@ -216,6 +246,8 @@ Public Class adBox
                 e.SuppressKeyPress = True
             End If
         End If
+
+        RaiseEvent YmdTextChange(Me, New EventArgs)
     End Sub
 
     Private Sub monthBox_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles monthBox.KeyDown
@@ -282,6 +314,8 @@ Public Class adBox
                 e.SuppressKeyPress = True
             End If
         End If
+
+        RaiseEvent YmdTextChange(Me, New EventArgs)
     End Sub
 
     Private Sub yearBox_GotFocus(sender As Object, e As System.EventArgs) Handles yearBox.GotFocus
@@ -350,6 +384,8 @@ Public Class adBox
                 e.SuppressKeyPress = True
             End If
         End If
+
+        RaiseEvent YmdTextChange(Me, New EventArgs)
     End Sub
 
     Private Sub yearBox_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles yearBox.MouseClick
